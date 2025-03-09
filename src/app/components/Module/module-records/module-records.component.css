@@ -1,4 +1,4 @@
-mat-dialog-content {
+  mat-dialog-content {
     width: 600px; /* Adjust width as needed */
     height: 300px; /* Adjust height as needed */
     overflow: auto; /* Adds scrolling if content overflows */
@@ -17,4 +17,15 @@ mat-dialog-content {
     justify-content: flex-end;
     padding: 16px 0;
   }
+  .search-div {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust spacing between elements */
+    flex-wrap: nowrap; /* Prevents wrapping to keep everything in one row */
+    width: 100%; /* Ensures it takes the full available width */
+  }
   
+  .search-div mat-form-field {
+    flex: 1; /* Allows the input field to grow and take available space */
+    min-width: 220px; /* Prevents it from becoming too small */
+  }

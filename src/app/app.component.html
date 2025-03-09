@@ -1,1 +1,7 @@
+<div class="global-loading" *ngIf="isLoading$ | async">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
 <router-outlet><app-spinner></app-spinner></router-outlet>
+<app-messenger-chat></app-messenger-chat>

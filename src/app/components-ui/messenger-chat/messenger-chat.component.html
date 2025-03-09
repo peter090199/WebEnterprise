@@ -1,0 +1,15 @@
+  <!-- Messenger Button to Open Chat -->
+   <div *ngFor="let data of contact">
+    <a [href]="data.mLink" target="_blank" class="messenger-button">
+      <button mat-icon-button color="primary">
+        <mat-icon>chat</mat-icon>
+      </button>
+    </a>
+   </div>
+
+<!-- Messenger Chat Container (Initially Hidden) -->
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat"
+  attribution="setup_tool"
+  page_id="253293024535662" style="display:none;"></div>
+

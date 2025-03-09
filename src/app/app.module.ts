@@ -1,13 +1,12 @@
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { AppRoutes } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-
+import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
@@ -49,8 +48,14 @@ import { BlogComponent } from './components/Module/module-task/blog/blog.compone
 import { AboutUsComponent } from './components/Module/module-task/about-us/about-us.component';
 import { BlogRecordsComponent } from './components/Blog/blog-records/blog-records.component';
 import { UserAccountComponent } from './components-ui/ProfileAccount/user-account/user-account.component';
+import { MyBlogComponent } from './components/UserWebsite/my-blog/my-blog.component';
+import { MessengerChatComponent } from './components-ui/messenger-chat/messenger-chat.component';
+import { LoadingInterceptor } from './Services/Loading/http.interceptor';
+import { TopheaderComponent } from './components/UserWebsite/topheader/topheader.component';
+
 @NgModule({
-  declarations: [
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    declarations: [
     AppComponent,
     FullComponent,
     AppHeaderComponent,
@@ -80,11 +85,16 @@ import { UserAccountComponent } from './components-ui/ProfileAccount/user-accoun
     BlogImageUIComponent,
     BlogComponent,
     AboutUsComponent,
-    AboutUsComponent,
     BlogRecordsComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    MyBlogComponent,
+    MessengerChatComponent,
+    TopheaderComponent,
+    
   ],
   imports: [
+    AppRoutingModule,
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
@@ -95,15 +105,15 @@ import { UserAccountComponent } from './components-ui/ProfileAccount/user-accoun
     ReactiveFormsModule,
     MatCardModule,
     MaterialModule,
-    RouterModule.forRoot(AppRoutes),
     ToastrModule.forRoot(),
   ],
-  providers: [
-    {
-      provide: LocationStrategy,
-      useClass: PathLocationStrategy,
-    }
-  ],
+  // providers: [
+  //   {
+  //     provide: LocationStrategy,
+  //     useClass: PathLocationStrategy,
+  //   }
+  // ],
+  providers: [DatePipe, { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

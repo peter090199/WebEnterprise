@@ -18,10 +18,30 @@ import { ModuleComponent } from './components/Module/module/module.component';
 import { SubmoduleComponent } from './components/Module/submodule/submodule.component';
 import { RoleComponent } from './components/system/role/role.component';
 import { UserAccountComponent } from './components-ui/ProfileAccount/user-account/user-account.component';
+import { HomepageComponent } from './components/UserWebsite/homepage/homepage.component';
+import { AboutUSComponent } from './components/UserWebsite/about-us/about-us.component';
+import { PromoComponent } from './components/UserWebsite/promo/promo.component';
+import { MyBlogComponent } from './components/UserWebsite/my-blog/my-blog.component';
+import { ContactComponent } from './components/UserWebsite/contact/contact.component';
+import { TopheaderComponent } from './components/UserWebsite/topheader/topheader.component';
 
-export const AppRoutes: Routes = [
-  { path: 'login', component: SignInUIComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirect root to login
+
+
+  const routes: Routes = [
+  { 
+    path: '', 
+    component:TopheaderComponent, 
+    children: [
+      { path: 'homepage', component: HomepageComponent },
+      { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+      { path: 'about_us', component: AboutUSComponent },
+      { path: 'promo', component: PromoComponent },
+      { path: 'blogs', component: MyBlogComponent },
+      { path: 'contact_us', component: ContactComponent },
+      { path: 'login', component: SignInUIComponent },
+    ] 
+  },
+ 
 
   {
     path: '',
@@ -59,7 +79,7 @@ export const AppRoutes: Routes = [
   { path: '**', component: PageNotFoundComponentComponent }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(AppRoutes,{ preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes,{ preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 

@@ -1,6 +1,6 @@
 <section class="default-width content-scrollable">
     <div class="search-div">
-      <mat-form-field class="w-40" floatLabel="never" appearance="standard">
+      <mat-form-field class="w-20" floatLabel="never" appearance="standard">
         <input matInput [(ngModel)]="searchKey" [placeholder]="placeHolder" (keyup)="applyFilter()" autocomplete="false">
         <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
           <mat-icon>close</mat-icon>
@@ -15,8 +15,10 @@
         <mat-icon>add_circle</mat-icon> Submodule
       </button>
     </div>
+
+
     <div class="container-fixed">
-      <mat-table [dataSource]="dataSource" class="mat-elevation-z4" matSort>
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
   
         <ng-container matColumnDef="transNo">
           <mat-header-cell *matHeaderCellDef mat-sort-header>TransNo</mat-header-cell>

@@ -1,0 +1,176 @@
+/* Fixed Header */
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other content */
+    background-color: rgb(235, 226, 226); /* Ensure visibility */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .example-spacer {
+      flex: 1 1 auto;
+    }
+    .nav-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .login-item {
+      margin-left: auto;
+    }
+    .w3-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      display: flex;
+      gap: 40px;
+      margin-left: 30%;
+    }
+  
+    .mobile-toolbar {
+      display: flex;
+    }
+  
+    .example-container {
+      width: 500px;
+      height: 300px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    
+    .example-sidenav-content {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .example-sidenav {
+      padding: 20px;
+    }
+    .toolbar-titl {
+      font-size: 18px;
+      font-family: Verdana, sans-serif;
+    }
+    
+    .nav-container {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .nav-item {
+      color: rgb(28, 27, 27);
+      text-transform: uppercase;
+      font-size: 14px;
+      font-family: Verdana, sans-serif;
+    }
+    
+  
+    .sidebar-header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 0px;
+    }
+  
+    
+    /* Hide toolbar on desktop screens (larger than 768px) */
+    @media (min-width: 769px) {
+      .mobile-toolbar {
+        display: none;
+      }
+    }
+  
+    @media (max-width: 767px) {
+      .nav-container {
+        display: none;
+      }
+    }
+    
+    /* Mobile Menu Button - Show only on mobile */
+    .mobile-toolbar {
+      display: none;
+    }
+    
+    /* Show menu button on screens smaller than 768px */
+    @media (max-width: 767px) {
+      .mobile-toolbar {
+        display: block;
+      }
+    }
+    
+  
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      max-height: 400px;
+      background: white;
+      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+      transition: left 0.5s ease-in-out;
+      padding: 0px;
+      z-index: 1000;
+      overflow: auto;
+    }
+    
+    /* Sidebar active (slide in) */
+    .sidebar.active {
+      left: 0;
+    }
+    
+    /* Sidebar Overlay (background fade) */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: auto;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: red;
+    }
+    
+    /* Navigation List */
+    .nav-list {
+      list-style-type: none;
+      padding: 2px;
+      margin-top: 40px;
+    }
+    
+    .nav-list li {
+      margin-bottom: 15px;
+    }
+    
+    .nav-list button {
+      width: 100%;
+      text-align: left;
+    }
+    
+    /* Hide sidebar & overlay on desktop */
+    @media (min-width: 768px) {
+      .sidebar,
+      .sidebar-overlay {
+        display: none !important;
+      }
+    }
+  
+    .w3-bar-item {
+      font-size: 16px; /* Adjust as needed */
+      padding: 10px 15px; /* Top-Bottom | Left-Right */
+      font-family: 'Verdana', sans-serif; /* Change to your preferred font */
+    }
+    

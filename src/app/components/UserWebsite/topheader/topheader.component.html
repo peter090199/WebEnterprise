@@ -1,0 +1,41 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-bar>
+<mat-toolbar class="w3-bar w3-white w3-card" id="myNavbar">
+  <button mat-icon-button class="mobile-toolbar" aria-label="Menu" (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="toolbar-title">Pedsfolio</span>
+  <!-- Spacer for Alignment -->
+  <span class="example-spacer"></span>
+    <div class="w3-right w3-hide-small">
+      <a *ngFor="let item of nav_module" [href]="item.routes" (click)="closeSidebar()" class="w3-bar-item w3-button"
+         [class.login-item]="item.module === 'Login'">
+        {{ item.module }}
+      </a>
+    </div>
+
+</mat-toolbar>
+
+
+<!-- sidebar -->
+<div class="sidebar-overlay" *ngIf="isSidebarOpen && isMobile" (click)="closeSidebar()"></div>
+<div class="sidebar" *ngIf="isMobile" [ngClass]="{ 'active': isSidebarOpen }">
+  <button mat-icon-button class="close-btn" (click)="closeSidebar()">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <ul class="nav-list">
+    <li *ngFor="let link of nav_module">
+      <a mat-button [href]="link.routes" (click)="closeSidebar()">
+        {{ link.module }}
+      </a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
+<!-- <div [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div> -->
+
+
+

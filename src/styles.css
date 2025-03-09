@@ -1,10 +1,21 @@
 @import "~ngx-toastr/toastr.css";
 
- /* Header styles */
- .mat-header-cell {
+
+
+body 
+{
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+ 
+}
+
+
+/* Header styles */
+.mat-header-cell {
     font-weight: bold;
     text-transform: uppercase;
-    background: #f5f5f5;
+    background: #fff8f8;
+    font-size: 13px;
 }
 
 /* Table rows */
@@ -16,7 +27,228 @@
 .mat-row:hover {
     background: #f0f0f0;
 }
+
+/* Action icons */
+.action-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-icons button {
+    color: #3f51b5;
+}
+
+.action-icons button:hover {
+    color: #1e3a8a;
+}
+
+
+/* Styles the close button */
+.close-button {
+ position: absolute;
+ top: 0px;
+ right: 10px;
+ cursor: pointer;
+ z-index: 10;
+}
+
+/* Styles the close icon */
+.close-icon {
+ font-size: 24px; /* Adjust icon size if needed */
+ color: red; /* Customize color */
+ display: flex;
+ flex: 1 auto;
+}
 .mat-table {
+  font-size: 12px;
+}
+
+
+.close-button:hover {
+    color: darkred;
+}
+
+/* Ensure dialog height adapts on small screens */
+@media (max-width: 768px) {
+    .mat-dialog-container {
+        height: 95%;
+    }
+
+    .mat-table {
+        font-size: 12px;
+    }
+
+    .action-icons button {
+        font-size: 16px;
+    }
+}
+
+
+mat-row.selected {
+    background-color: #d9d9db !important; /* Light Blue */
+  }
+  
+  .loading-spinner-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 9999;
+ }
+ 
+ mat-spinner {
+   width: 40px;  /* Default size for mobile */
+   height: 40px; /* Default size for mobile */
+ }
+ 
+ /* Tablet: Slightly larger spinner */
+ @media (min-width: 600px) and (max-width: 1024px) {
+   mat-spinner {
+     width: 50px;
+     height: 50px;
+   }
+ }
+ 
+ /* Desktop: Larger spinner */
+ @media (min-width: 1025px) {
+   mat-spinner {
+     width: 60px;
+     height: 60px;
+   }
+ }
+ 
+ .form-row {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 16px;
+   margin-bottom: 16px;
+ }
+ 
+ .half-width {
+   flex: 1 1 calc(50% - 8px);
+   width: 50%;
+   padding: 10px;
+ }
+ 
+ .full-width {
+   flex: 1 1 100%;
+   width: 100%;
+   padding: 10px;
+ }
+ .container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px;
+  margin-top: 80px;
+}
+ .button-end {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 5px;
+   gap: 16px;
+ }
+ 
+
+  
+  /* Adjust the width of the id column */
+  .mat-column-id {
+    width: 80px; /* Set the width of the 'id' column */
+  }
+  
+  /* Style the ID cell to accommodate the text and button */
+  .id-cell-container {
+    display: flex;
+    justify-content: space-between; /* Align the text and button properly */
+    align-items: center; /* Center the content vertically */
+  }
+  
+  .id-text {
+    flex: 1; /* Make the text take the available space */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .search-div {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust spacing between elements */
+    flex-wrap: nowrap; /* Prevents wrapping to keep everything in one row */
+    width: 40%; /* Ensures it takes the full available width */
+  }
+  
+  .search-div mat-form-field {
+    flex: 1; /* Allows the input field to grow and take available space */
+    min-width: 200px; /* Prevents it from becoming too small */
+  }
+
+  
+
+  .product-image {
+  width: 100px; /* Set the desired width */
+  height: 40px; /* Set the desired height */
+  object-fit: cover; /* Ensures the image covers the given dimensions */
+  border-radius: 7px; /* Optional: adds a rounded corner effect */
+  }
+
+  /*image layout */
+  .image-preview {
+   width: 300px; 
+   height: 300px; 
+   max-width: 100%; 
+   border-radius: 5px;
+   object-fit: cover; 
+ }
+ 
+  
+  .content-scrollable {
+  overflow: auto; /* Allow vertical scrolling */
+  max-height: calc(100vh - 100px); /* Adjust this value based on your header/footer height */
+  }
+  
+  .mat-table {
+    width: 100%;
+  }
+  
+  mat-progress-spinner {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: block;
+   margin: 0;
+   /* Ensure it's centered in its container */
+ }
+  
+  @media (max-width: 600px) {
+    /* On smaller screens, reduce the id column width */
+    .mat-column-id {
+      width: 60px;
+    }
+    .mat-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    
+    .search-div
+    {
+      width: 100%;
+    }
+    /* Adjust the layout for smaller screens */
+    .id-cell-container {
+      display: block; /* Stack content vertically on mobile */
+    }
+  
+    .id-text {
+      margin-bottom: 5px; /* Add space between text and the button */
+    }
+  }
+  
+
+  .mat-table {
     width: 100%;
   }
   
@@ -33,8 +265,13 @@
     padding: 16px;
     color: rgba(0, 0, 0, 0.54);
   }
-   /* Hide paginator if no data */
-   .mat-paginator {
+  
+  .hide {
+    display: none;
+  }
+  
+  /* Hide paginator if no data */
+  .mat-paginator {
     display: block;
   }
   
@@ -79,97 +316,132 @@
  font-size: 12px; /* Font size for action icons */
 }
 
+
+.form-container{
+ display: flex;
+ flex-direction: column;
+ max-height: 490px; /* Make sure the card takes the full available height */
+}
+
 mat-card-content {
-    margin-top: 10px;
-    flex-grow: 1; 
-    overflow-y: auto; 
-    max-height: 500px;
-  }
-  mat-card-actions {
-    display: flex;
-    justify-content: flex-end;
-    padding: 16px;
-    position: sticky;
-    bottom: 0;
-  }
-  
-  textarea {
-    height:250px;
-    max-height: 250px; /* Adjust this value as needed */
-    overflow-y: auto; /* Enable scrolling if text exceeds max height */
-  }
-  .form-container{
-    display: flex;
-    flex-direction: column;
-    max-height: 490px; /* Make sure the card takes the full available height */
-  }
-  
-  .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-  
-  .half-width {
-    flex: 1 1 calc(50% - 8px);
-    width: 50%;
-    padding: 10px;
-  }
-  
-  .full-width {
-    flex: 1 1 100%;
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .button-end {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 5px;
-    gap: 16px;
-  }
-  
-  .search-div
-  {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    margin-bottom: 20px;
-  }
+ margin-top: 10px;
+ flex-grow: 1; 
+ overflow-y: auto; 
+ max-height: 500px;
+}
+mat-card-actions {
+ display: flex;
+ justify-content: flex-end;
+ padding: 16px;
+ position: sticky;
+ bottom: 0;
+}
 
-   /*image layout */
-   .image-preview {
-    width: 300px; 
-    height: 300px; 
-    max-width: 100%; 
-    border-radius: 5px;
-    object-fit: cover; 
-  }
-  
-   
-   .content-scrollable {
-   overflow: auto; /* Allow vertical scrolling */
-   max-height: calc(100vh - 100px); /* Adjust this value based on your header/footer height */
-   }
-   
-   .mat-table {
-     width: 100%;
-   }
-   
-   mat-progress-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    margin: 0;
-    /* Ensure it's centered in its container */
-  }
+.custom-textarea {
+ height:250px;
+ max-height: 250px; /* Adjust this value as needed */
+ overflow-y: auto; /* Enable scrolling if text exceeds max height */
+}
 
-  .mat-elevation-z4 {
-    width: 100%; /* Makes the table take up the full width of its container */
-  }
-  
+@media (max-width: 768px) {
+ mat-card {
+   max-height: 90vh;
+ }
+
+ mat-card-content {
+   max-height: 70vh;
+ }
+}
+
+
+/* Adjust font size for labels and inputs */
+mat-form-field {
+ font-size: 13px; 
+}
+
+/* Style the input text inside mat-form-field */
+mat-form-field input {
+ font-size: 13px; 
+ padding: 8px;
+}
+
+/* Style the placeholder text */
+mat-form-field mat-label {
+ font-size: 13px; 
+ color: #666; 
+}
+
+/* Style the dropdown options */
+mat-option {
+ font-size: 13px; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+ mat-form-field {
+   font-size: 12px; 
+ }
+ 
+ mat-form-field input {
+   font-size: 12px; 
+ }
+
+ mat-option {
+   font-size: 12px; 
+ }
+}
+
+
+/* slide animation */
+.image-container, .description {
+ opacity: 0;
+ transform: translateY(40px);
+ transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.image-container.fade-in, .description.fade-in {
+ opacity: 1;
+ transform: translateY(0);
+}
+
+/* Center the loading indicator */
+.loading {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+ margin-top: 20px;
+}
+
+/* Spinner animation */
+.spinner {
+ width: 50px;
+ height: 50px;
+ border: 5px solid rgba(0, 0, 0, 0.1);
+ border-top: 5px solid #198754;
+ border-radius: 50%;
+ animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+ 0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+ .spinner {
+     width: 40px;
+     height: 40px;
+ }
+ 
+ .loading p {
+     font-size: 14px;
+ }
+}
+
+
+
+
