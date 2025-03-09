@@ -1,0 +1,20 @@
+mat-dialog-content {
+    width: 600px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    overflow: auto; /* Adds scrolling if content overflows */
+  }
+  
+  .full-width {
+    width: 100%; /* Ensures fields take full width */
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 0;
+  }
+  

@@ -1,0 +1,19 @@
+.stats-card {
+    padding: 20px;
+  }
+  
+  .stat-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-icon {
+    cursor: pointer;
+  }
+  

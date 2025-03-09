@@ -1,0 +1,175 @@
+@import "~ngx-toastr/toastr.css";
+
+ /* Header styles */
+ .mat-header-cell {
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #f5f5f5;
+}
+
+/* Table rows */
+.mat-row {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mat-row:hover {
+    background: #f0f0f0;
+}
+.mat-table {
+    width: 100%;
+  }
+  
+  mat-footer-row {
+    display: block;
+  }
+  
+  mat-table{
+    display: block;
+    
+  }
+  .mat-footer-cell {
+    text-align: center;
+    padding: 16px;
+    color: rgba(0, 0, 0, 0.54);
+  }
+   /* Hide paginator if no data */
+   .mat-paginator {
+    display: block;
+  }
+  
+  .mat-footer-row.noData {
+    display: table-row;
+  }
+  
+  /* Add this to your component's CSS file */
+
+/* Adjust the width of the table */
+.mat-elevation-z4 {
+ width: 100%; /* Makes the table take up the full width of its container */
+}
+
+
+/* Adjust font size for headers */
+.mat-header-cell {
+ font-size: 10px; /* Header font size */
+}
+
+/* Adjust font size for table cells */
+.mat-cell {
+ font-size: 12px; /* Cell font size */
+}
+/* Adjust font size for paginator */
+.mat-paginator {
+ font-size: 12px;
+}
+
+/* Adjust font size for paginator buttons */
+.mat-paginator-button {
+ font-size: 12px;
+}
+
+/* Adjust font size for footer cells */
+.mat-footer-cell {
+ font-size: 12px; /* Footer font size */
+}
+
+/* For action buttons inside the table */
+.mat-icon-button {
+ font-size: 12px; /* Font size for action icons */
+}
+
+mat-card-content {
+    margin-top: 10px;
+    flex-grow: 1; 
+    overflow-y: auto; 
+    max-height: 500px;
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    position: sticky;
+    bottom: 0;
+  }
+  
+  textarea {
+    height:250px;
+    max-height: 250px; /* Adjust this value as needed */
+    overflow-y: auto; /* Enable scrolling if text exceeds max height */
+  }
+  .form-container{
+    display: flex;
+    flex-direction: column;
+    max-height: 490px; /* Make sure the card takes the full available height */
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .half-width {
+    flex: 1 1 calc(50% - 8px);
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .full-width {
+    flex: 1 1 100%;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .button-end {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    gap: 16px;
+  }
+  
+  .search-div
+  {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+   /*image layout */
+   .image-preview {
+    width: 300px; 
+    height: 300px; 
+    max-width: 100%; 
+    border-radius: 5px;
+    object-fit: cover; 
+  }
+  
+   
+   .content-scrollable {
+   overflow: auto; /* Allow vertical scrolling */
+   max-height: calc(100vh - 100px); /* Adjust this value based on your header/footer height */
+   }
+   
+   .mat-table {
+     width: 100%;
+   }
+   
+   mat-progress-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    margin: 0;
+    /* Ensure it's centered in its container */
+  }
+
+  .mat-elevation-z4 {
+    width: 100%; /* Makes the table take up the full width of its container */
+  }
+  

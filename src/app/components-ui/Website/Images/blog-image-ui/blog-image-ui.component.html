@@ -1,0 +1,72 @@
+
+  <mat-card-header>
+    <h2 mat-dialog-title>Upload Images</h2>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content class="form-container">
+    <form [formGroup]="blogForm" enctype="multipart/form-data">
+      
+      <!-- File Upload -->
+      <div class="file-upload">
+        <input type="file" (change)="onFileSelect($event)" accept="image/*" id="fileInput" multiple hidden>
+        <label for="fileInput" class="upload-btn">
+          <mat-icon color="primary">cloud_upload</mat-icon> Upload Images
+        </label>
+      </div>
+    <br>
+      <!-- Image Preview -->
+      <div class="image-preview-container" *ngIf="imagePreviews.length">
+        <div *ngFor="let img of imagePreviews; let i = index" class="image-preview">
+          <img [src]="img" alt="Selected Image" />
+          <button mat-icon-button color="warn" (click)="removeImage(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Title Input -->
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required />
+      </mat-form-field>
+
+      <!-- Description Input -->
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="4" required></textarea>
+      </mat-form-field>
+
+      <!-- Dynamic Stats Inputs -->
+      <div formArrayName="stats">
+        <div *ngFor="let stat of statsArray.controls; let i = index" [formGroupName]="i" class="stat-item">
+          
+          <mat-form-field appearance="standard" class="half-width">
+            <mat-label>Value</mat-label>
+            <input matInput formControlName="value" placeholder="Enter value">
+          </mat-form-field>
+
+          <mat-form-field appearance="standard" class="half-width">
+            <mat-label>Label</mat-label>
+            <input matInput formControlName="label" placeholder="Enter label">
+          </mat-form-field>
+
+          <button mat-icon-button color="warn" (click)="removeStat(i)" *ngIf="statsArray.length > 1">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Add Stat Button -->
+      <button type="button" mat-raised-button color="primary" (click)="addStat()">Add Stat</button>
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-footer class="button-end">
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancel</button>
+    <button mat-raised-button color="primary" class="submit-btn" (click)="uploadFiles()" [disabled]="blogForm.invalid || isUploading">
+      {{btnSave}}
+    </button>
+  </mat-card-footer>

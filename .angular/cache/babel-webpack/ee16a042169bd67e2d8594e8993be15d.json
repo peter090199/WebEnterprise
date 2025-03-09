@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { environment } from 'src/environments/environment';\nexport const _url = environment.apiUrl;\nexport const _systemTitle = 'Tripidoo';","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,82 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .profile-card {
+    width: 100%;
+    max-width: 800px; /* Max width for large screens */
+    margin: 10px;
+  }
+  
+  .profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .avatar-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Media Queries for different screen sizes */
+  @media (max-width: 768px) { 
+    .profile-card {
+      padding: 15px;
+    }
+  
+    mat-card-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .avatar-icon {
+      font-size: 50px;
+    }
+  
+    .profile-details {
+      gap: 10px;
+    }
+  
+    mat-card-actions {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  mat-progress-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    margin: 0;
+    /* Ensure it's centered in its container */
+  }
+  

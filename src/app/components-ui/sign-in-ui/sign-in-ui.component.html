@@ -1,0 +1,120 @@
+<!-- <app-header></app-header>
+<div class="login-container">
+  <mat-card class="mat-card" style="border-radius: 10px;">
+    <mat-card-content>
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-bar>
+      <h2  style="text-align: left;">
+        Login
+     </h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label>Email</mat-label>
+          <mat-icon matPrefix>email</mat-icon>
+          <input matInput placeholder="Enter your email" type="email" formControlName="email" required>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Please enter a valid email address.
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input
+            matInput
+            [type]="passwordVisible ? 'text' : 'password'"
+            formControlName="password"
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+            placeholder="Enter your password"
+          />
+          <mat-icon
+            matSuffix
+            (click)="togglePasswordVisibility()"
+            style="cursor: pointer;"
+          >
+            {{ passwordVisible ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+        
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
+            Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character.
+          </mat-error>
+        </mat-form-field>
+        <div class="spacer-top"></div>
+        <button mat-raised-button color="primary" class="signin-button" 
+          [disabled]="isLoading || !loginForm.valid" type="submit">
+          Sign in
+        </button>
+ 
+      </form>
+    </mat-card-content>
+      <div class="links">
+          <a routerLink="/">Back to home</a>
+     </div>
+  </mat-card>
+</div> -->
+
+
+<div class="login-container">
+  <mat-card class="mat-card" style="border-radius: 10px;">
+    <mat-card-content>
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-bar>
+      <h2 style="text-align: left;">Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Username Field -->
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label>Username</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="Enter your username" type="text" formControlName="username" required>
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            Username is required.
+          </mat-error>
+        </mat-form-field>
+        
+        <!-- Password Field -->
+        <mat-form-field appearance="standard" class="full-width">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input
+            matInput
+            [type]="passwordVisible ? 'text' : 'password'"
+            formControlName="password"
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+            placeholder="Enter your password"
+          />
+          <mat-icon
+            matSuffix
+            (click)="togglePasswordVisibility()"
+            style="cursor: pointer;"
+          >
+            {{ passwordVisible ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+        
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required.
+          </mat-error>
+          <!-- <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
+            Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character.
+          </mat-error> -->
+        </mat-form-field>
+
+        <div class="spacer-top"></div>
+        <button mat-raised-button color="primary" class="signin-button" 
+          [disabled]="isLoading || !loginForm.valid" type="submit">
+        LOGIN
+        </button>
+ 
+      </form>
+    </mat-card-content>
+    <div class="links">
+      <a routerLink="/">Back to home</a>
+    </div>
+  </mat-card>
+</div>

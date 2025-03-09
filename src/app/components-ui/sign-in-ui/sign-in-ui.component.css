@@ -1,0 +1,52 @@
+/* Container to center the login card */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0px;
+
+}
+
+.width2{
+  margin-bottom: 20px;
+}
+
+.agreement-section {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555;
+  margin: 10px;
+}
+
+
+/* Card styling with scrolling enabled */
+/*  */
+
+/* Full width for form fields and button */
+.full-width {
+  width: 100%;
+}
+
+
+.signin-button {
+  width: 100%;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 5px;
+  }
+
+  .login-card {
+    max-height: 90vh; /* Allow a bit more height on mobile */
+    border-radius: 10px; 
+  }
+
+  .signin-button {
+    margin-top: 2px;
+  }
+
+}
+

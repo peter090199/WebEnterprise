@@ -1,0 +1,70 @@
+textarea {
+    height:80px; /* Set the desired height */
+    resize: vertical; /* Allow the user to resize vertically */
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    max-height: 500px;
+  }
+  
+
+  .image-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between images */
+    margin-top: 10px;
+  }
+  
+  .image-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .image-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .image-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between price items */
+    margin-top: 10px;
+  }
+  
+  .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .form-row p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .half-width {
+    width: 48%;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  

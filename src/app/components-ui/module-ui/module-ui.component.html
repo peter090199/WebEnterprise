@@ -1,0 +1,45 @@
+<mat-card-header>
+    <h2 mat-dialog-title>{{ btnSave }} Module</h2>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <form [formGroup]="menuForm" (ngSubmit)="onSubmit()" >
+    <mat-card-content>
+      <!-- Menu Fields -->
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Module</mat-label>
+        <input matInput placeholder="Enter module" autocomplete="off" required formControlName="module">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Routes</mat-label>
+        <input matInput  autocomplete="off" placeholder="Enter routes" required formControlName="routes">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Sort Order</mat-label>
+        <input matInput type="number" placeholder="Enter Sort Order" required formControlName="sort">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" required>
+          <mat-option value="A">Active</mat-option>
+          <mat-option value="I">Inactive</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+    </mat-card-content>
+
+    <mat-card-footer class="button-end">
+      <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancel</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="menuForm.invalid">{{ btnSave }}</button>
+    </mat-card-footer>
+  </form>
+ 
+  
+
+   
+
+ 

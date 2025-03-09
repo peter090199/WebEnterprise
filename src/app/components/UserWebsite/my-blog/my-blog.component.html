@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div *ngFor="let data of roles;let i = index" [@slideLeftRightAnimation] >
+        <h2 class="contact-title">{{ data.blog_title }}</h2>
+        <p class="contact-description">{{ data.description }}</p>
+    </div>
+
+
+    <div class="row" *ngFor="let image of images; let i = index" >
+        <div class="col-md-6 image-container"  [@slideUp]>
+            <img [src]="image.file_path" alt="Travel Image" (click)="onClick(image)"  >
+        </div>
+        <div class="col-md-6 description"  [@slideFade] >
+            <h2>{{ image.title }}</h2>
+            <p>{{ image.description }}</p>
+    
+            <div class="stats" *ngIf="image.stats?.length" >
+                <div class="stat-item" *ngFor="let stat of image.stats">
+                    <span>{{ stat.value }}</span>
+                    <p>{{ stat.label }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Preview Modal -->
+<div *ngIf="selectedImage" class="modal" (click)="closePreview()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closePreview()">&times;</span>
+        <img [src]="selectedImage.file_path" alt="Preview Image">
+            <h2>{{ selectedImage.title }}</h2>
+            <p>{{ selectedImage.description }}</p>
+    
+            <div class="stats" *ngIf="selectedImage.stats?.length">
+                <div class="stat-item" *ngFor="let stat of selectedImage.stats">
+                    <h1>{{ stat.value }}</h1>
+                    <p>{{ stat.label }}</p>
+                </div>
+            </div>
+
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<!-- user-account.component.html -->
+<div class="profile-container">
+    <mat-card class="profile-card">
+      <mat-card-header>
+        <mat-card-title>User Profile</mat-card-title>
+        <mat-card-subtitle>Manage your account settings</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <!-- Profile Picture Section -->
+        <!-- <div class="form-row">
+          <button mat-raised-button color="accent" (click)="onUploadPicture()">Change Picture</button>
+        </div> -->
+  
+        <!-- Profile Details Section -->
+        <div class="profile-details">
+            <div class="form-row">
+                <mat-form-field class="half-width">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput [(ngModel)]="user.fullname" placeholder="Enter your Fullname" readonly>
+                  </mat-form-field>
+                  
+          
+                  <mat-form-field class="half-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="user.email" placeholder="Enter your email" readonly>
+                  </mat-form-field>
+            </div>
+        
+  
+          <mat-form-field class="full-width">
+            <mat-label>Phone Number</mat-label>
+            <input matInput [(ngModel)]="user.contactno" placeholder="Enter your phone number" readonly>
+          </mat-form-field>
+  
+          <mat-form-field class="full-width">
+            <mat-label>Role_code</mat-label>
+            <input matInput [(ngModel)]="user.role_code"  readonly>
+          </mat-form-field>
+
+        </div>
+      </mat-card-content>
+  
+      <!-- Action Buttons -->
+        <div class="button-end">
+        <button mat-raised-button color="primary" routerLink="/home">Back</button>
+      </div>
+
+      <!-- <div class="button-end">
+        <button mat-raised-button color="primary" (click)="saveChanges()">Save Changes</button>
+        <button mat-raised-button color="warn" (click)="resetChanges()">Reset</button>
+      </div> -->
+    </mat-card>
+  </div>
+  
+  <!-- Material Progress Spinner (optional for loading state) -->
+  <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-spinner>
+  

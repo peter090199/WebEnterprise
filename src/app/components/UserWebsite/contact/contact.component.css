@@ -1,0 +1,13 @@
+.contact-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.contact-description {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

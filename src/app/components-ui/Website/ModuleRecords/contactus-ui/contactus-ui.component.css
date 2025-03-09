@@ -1,0 +1,6 @@
+.custom-textarea {
+    height:250px;
+    max-height: 250px; /* Adjust this value as needed */
+    overflow-y: auto; /* Enable scrolling if text exceeds max height */
+  }
+  

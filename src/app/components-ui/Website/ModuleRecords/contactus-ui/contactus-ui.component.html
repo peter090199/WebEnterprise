@@ -1,0 +1,66 @@
+<mat-card-header>
+    <h2 mat-dialog-title>{{ btnSave }} {{moduleName}}</h2>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <form [formGroup]="menuForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-card-content>
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Contact Title</mat-label>
+        <input matInput placeholder="Contact title" autocomplete="off" required formControlName="contact_title" >
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput autocomplete="off" placeholder="Enter description" required formControlName="description" class="custom-textarea"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Facebook Page</mat-label>
+        <input matInput placeholder="Facebook Page" autocomplete="off" required formControlName="fbpage">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Messenger Link</mat-label>
+        <input
+          matInput
+          placeholder="Messenger Link"
+          autocomplete="off"
+          formControlName="mLink"
+          required
+        />
+        <!-- Show format hint -->
+        <mat-hint align="start">
+          Format: https://www.messenger.com/t/123456789/
+        </mat-hint>
+
+        <!-- Show error message using mat-hint -->
+        <mat-hint align="end" *ngIf="menuForm.get('mLink')?.invalid">
+          ⚠ {{ getMessengerError() }}
+        </mat-hint>
+      </mat-form-field>
+      
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="tel" placeholder="Enter phone number" autocomplete="off" 
+               formControlName="phoneNumber" required pattern="^[0-9]{10,15}$">
+        <mat-hint>Format: 10-15 digits</mat-hint>
+        <mat-error *ngIf="menuForm.get('phoneNumber')?.invalid && menuForm.get('phoneNumber')?.touched">
+          Please enter a valid phone number (10-15 digits).
+        </mat-error>
+      </mat-form-field>
+      
+
+    </mat-card-content>
+
+    <mat-dialog-actions  align="end">
+      <button mat-raised-button color="warn" [mat-dialog-close]="true">Cancel</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="menuForm.invalid">{{ btnSave }}</button>
+    </mat-dialog-actions>
+  </form>
+ 
+  
+
+   
+
+ 

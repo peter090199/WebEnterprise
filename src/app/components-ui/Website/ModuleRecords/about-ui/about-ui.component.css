@@ -1,0 +1,7 @@
+mat-form-field.full-width textarea {
+    min-height: 100px; /* Adjust height as needed */
+    max-height: 300px; /* Prevents it from growing too large */
+    resize: vertical;  /* Allows vertical resizing */
+    overflow-y: auto;  /* Enables scrolling when content overflows */
+  }
+  
