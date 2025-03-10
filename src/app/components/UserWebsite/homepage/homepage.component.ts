@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { NotificationsService } from 'src/app/Services/Global/notifications.service';
 import { MenuService } from 'src/app/Services/Menu/menu.service';
@@ -8,7 +8,7 @@ import { MenuService } from 'src/app/Services/Menu/menu.service';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements AfterViewInit  {
+export class HomepageComponent implements OnInit  {
   images = [
     { src: 'assets/home2.jpg', alt: 'Los Angeles', description: 'Los Angeles, the city of stars and Hollywood dreams.' },
     { src: 'assets/home.jpg', alt: 'Chicago', description: 'Chicago, known for its stunning skyline and deep-dish pizza.' },
@@ -21,17 +21,17 @@ export class HomepageComponent implements AfterViewInit  {
   constructor(private navigationService: MenuService,private notificationsService:NotificationsService) {
     
   }
-  ngAfterViewInit() {
-    this.getContact();
+  // ngAfterViewInit() {
+  //   this.getContact();
 
-    setInterval(() => {
-      const carousel = document.querySelector('#carouselExample');
-      if (carousel) {
-        // Trigger the next slide using Bootstrap's API
-        (carousel as any).querySelector('.carousel-control-next')?.click();
-      }
-    }, 8000); 
-  }
+  //   setInterval(() => {
+  //     const carousel = document.querySelector('#carouselExample');
+  //     if (carousel) {
+  //       // Trigger the next slide using Bootstrap's API
+  //       (carousel as any).querySelector('.carousel-control-next')?.click();
+  //     }
+  //   }, 8000); 
+  // }
   ngOnInit(): void {
    
   }

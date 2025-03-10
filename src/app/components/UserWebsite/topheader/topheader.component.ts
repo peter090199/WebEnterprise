@@ -7,12 +7,11 @@ import { AuthService } from 'src/app/Services/Auth/auth.service';
   templateUrl: './topheader.component.html',
   styleUrls: ['./topheader.component.css']
 })
-
 export class TopheaderComponent implements OnInit {
-  isSidebarOpen = false; 
-  isMobile = false; 
-  nav_module: any = [];
-  isLoading:boolean=false;
+  isSidebarOpen: boolean = false;
+  isMobile: boolean = false;
+  nav_module: any[] = []; // Explicitly set as an array
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -24,37 +23,44 @@ export class TopheaderComponent implements OnInit {
     this.getModule();
   }
 
-  @HostListener('window:resize', [])
-  onResize() {
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
     this.checkScreenSize();
     if (!this.isMobile) {
-      this.isSidebarOpen = false; // Auto-close on larger screens
+      this.isSidebarOpen = false; // Auto-close sidebar on larger screens
     }
   }
 
-  checkScreenSize() {
+  checkScreenSize(): void {
     this.isMobile = window.innerWidth <= 767;
-    this.isSidebarOpen = false; // Default: closed on mobile
+    if (!this.isMobile) {
+      this.isSidebarOpen = false; // Ensure sidebar stays closed on larger screens
+    }
   }
 
-  toggleSidebar() {
+  toggleSidebar(): void {
     if (this.isMobile) {
       this.isSidebarOpen = !this.isSidebarOpen;
     }
   }
 
-  closeSidebar() {
+  closeSidebar(): void {
     this.isSidebarOpen = false;
   }
 
   async getModule(): Promise<void> {
+    this.isLoading = true; // Start loading indicator
     try {
       const response = await this.navigationService.getWebsiteMenu().toPromise();
-      if (response.success) {
+      if (response?.success) {
         this.nav_module = response.data;
+      } else {
+        console.warn('Menu fetch unsuccessful:', response);
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching menu data:', error);
+    } finally {
+      this.isLoading = false; // Stop loading indicator
     }
   }
 

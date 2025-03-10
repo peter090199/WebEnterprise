@@ -11,7 +11,15 @@ body {
   overflow-x: hidden;
   color: $bodytext;
   font-weight: 300;
-  background: transparent;
+}
+
+html .page-wrapper {
+  height: calc(100vh - 64px);
+  .page-content {
+    padding: 10px 15px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 
 html {
@@ -35,14 +43,6 @@ html {
   background: $bodycolor;
 }
 
-html .page-wrapper {
-  height: calc(100vh - 64px);
-  .page-content {
-    padding: 10px 15px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-}
 
 // a tag
 

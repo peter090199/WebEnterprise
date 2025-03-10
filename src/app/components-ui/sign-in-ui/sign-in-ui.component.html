@@ -64,13 +64,20 @@
     <mat-card-content>
       <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-bar>
       <h2 style="text-align: left;">Login</h2>
+
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         
         <!-- Username Field -->
         <mat-form-field appearance="standard" class="full-width">
           <mat-label>Username</mat-label>
           <mat-icon matPrefix>person</mat-icon>
-          <input matInput placeholder="Enter your username" type="text" formControlName="username" required>
+          <input matInput 
+                 placeholder="Enter your username" 
+                 type="text" 
+                 formControlName="username" 
+                 required
+                 autocomplete="username"
+                 aria-label="Enter your username">
           <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
             Username is required.
           </mat-error>
@@ -80,38 +87,38 @@
         <mat-form-field appearance="standard" class="full-width">
           <mat-label>Password</mat-label>
           <mat-icon matPrefix>lock</mat-icon>
-          <input
-            matInput
-            [type]="passwordVisible ? 'text' : 'password'"
-            formControlName="password"
-            required
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-            placeholder="Enter your password"
-          />
-          <mat-icon
-            matSuffix
-            (click)="togglePasswordVisibility()"
-            style="cursor: pointer;"
-          >
-            {{ passwordVisible ? 'visibility_off' : 'visibility' }}
-          </mat-icon>
-        
+          <input matInput
+                 [type]="passwordVisible ? 'text' : 'password'"
+                 formControlName="password"
+                 required
+                 autocomplete="current-password"
+                 placeholder="Enter your password"
+                 aria-label="Enter your password">
+          <button mat-icon-button
+                  matSuffix
+                  (click)="togglePasswordVisibility()"
+                  type="button"
+                  aria-label="Toggle password visibility"
+                  style="cursor: pointer;">
+            <mat-icon>{{ passwordVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
           <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
             Password is required.
           </mat-error>
-          <!-- <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
-            Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character.
-          </mat-error> -->
         </mat-form-field>
 
         <div class="spacer-top"></div>
-        <button mat-raised-button color="primary" class="signin-button" 
-          [disabled]="isLoading || !loginForm.valid" type="submit">
-           LOGIN
+        <button mat-raised-button 
+                color="primary" 
+                class="signin-button" 
+                [disabled]="isLoading || !loginForm.valid" 
+                type="submit">
+          LOGIN
         </button>
- 
+
       </form>
     </mat-card-content>
+
     <div class="links">
       <a routerLink="/">Back to home</a>
     </div>
