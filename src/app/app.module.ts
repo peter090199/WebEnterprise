@@ -52,6 +52,10 @@ import { MyBlogComponent } from './components/UserWebsite/my-blog/my-blog.compon
 import { MessengerChatComponent } from './components-ui/messenger-chat/messenger-chat.component';
 import { LoadingInterceptor } from './Services/Loading/http.interceptor';
 import { TopheaderComponent } from './components/UserWebsite/topheader/topheader.component';
+import { WorkExperienceComponent } from './components/UserWebsite/work-experience/work-experience.component';
+import { ScrollAnimateDirective } from './directives/scroll-animate.directive';
+import { AboutPageComponent } from './components/UserWebsite/about-page/about-page.component';
+import { MyHomeComponent } from './components/UserWebsite/my-home/my-home.component';
 
 @NgModule({
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -90,7 +94,11 @@ import { TopheaderComponent } from './components/UserWebsite/topheader/topheader
     MyBlogComponent,
     MessengerChatComponent,
     TopheaderComponent,
-    
+    WorkExperienceComponent,
+    ScrollAnimateDirective,
+    AboutPageComponent,
+    MyHomeComponent,
+    ImageDialogComponent
   ],
   imports: [
     AppRoutingModule,

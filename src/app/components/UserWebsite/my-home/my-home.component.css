@@ -1,0 +1,87 @@
+/* Skills Section */
+.skills {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .skill {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .skill:hover {
+    transform: scale(1.1);
+  }
+  /* Projects Section */
+.projects {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Project List in Column Layout */
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Individual Project Card */
+  .project-card {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px;
+   
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Image Styling */
+  .project-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 500px;
+  }
+  
+  /* Card Content */
+  .project-card mat-card-content {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .project-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .project-card mat-card-actions {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+  }
+  

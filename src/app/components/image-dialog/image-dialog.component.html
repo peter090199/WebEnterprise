@@ -1,7 +1,7 @@
 <div class="image-gallery">
     <h2>Blog Images</h2>
 
-    <div *ngIf="images.length > 0; else noImages">
+    <div *ngIf="images?.length > 0; else noImages">
         <div class="grid">
             <div *ngFor="let image of images" class="image-card">
                 <img *ngIf="image.file_path" 

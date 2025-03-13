@@ -178,13 +178,12 @@ export class ModuleRecordsComponent implements OnInit {
       }
     });
 
-  } else if (this.selectedModule === 'Blog') {
+  } else if (this.selectedModule === 'My Project') {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '500px';
     dialogConfig.data = { moduleName: this.selectedModule, transNo: this.transNo };
-  
   
     const dialogRef = this.dialog.open(BlogUIComponent, dialogConfig);
   
@@ -213,7 +212,7 @@ export class ModuleRecordsComponent implements OnInit {
     });
 
   } else {
-    this.notificationsService.toastrError('Unknown module selected');
+    this.notificationsService.toastrWarning('Invalid Module');
   }
   
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoadingService } from './Services/Loading/loading.service';
 
@@ -6,29 +6,33 @@ import { LoadingService } from './Services/Loading/loading.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush, // ✅ Optimized Change Detection
 })
-export class AppComponent implements AfterViewInit {
-  title = 'Traveller';
-  isLoading$!: Observable<boolean>; // ✅ Use "$" naming convention for observables
+export class AppComponent implements OnInit, AfterViewInit {
+  title = 'PedsFolio | Freelancer';
+  isLoading$: Observable<boolean>; // ✅ No need for "!:" (safe assignment in constructor)
 
   constructor(
     private loadingService: LoadingService,
     private cdr: ChangeDetectorRef
   ) {
-    this.isLoading$ = this.loadingService.isLoading$;
+    this.isLoading$ = this.loadingService.isLoading$; // ✅ Proper observable initialization
   }
 
+  ngOnInit(): void {
+    this.isLoading$.subscribe(() => {
+      this.cdr.markForCheck();
+    });
+  }
 
   ngAfterViewInit(): void {
-    this.cdr.detectChanges(); // ✅ Ensure change detection runs after view init
     this.loadMessengerChat();
   }
 
   loadMessengerChat(): void {
-    const fb = (window as any).FB;
-    if (fb && fb.XFBML) {
-      fb.XFBML.parse();
+    // ✅ Ensure FB SDK is loaded before parsing
+    if ((window as any).FB?.XFBML) {
+      (window as any).FB.XFBML.parse();
     }
   }
 }

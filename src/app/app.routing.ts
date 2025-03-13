@@ -18,12 +18,13 @@ import { ModuleComponent } from './components/Module/module/module.component';
 import { SubmoduleComponent } from './components/Module/submodule/submodule.component';
 import { RoleComponent } from './components/system/role/role.component';
 import { UserAccountComponent } from './components-ui/ProfileAccount/user-account/user-account.component';
-import { HomepageComponent } from './components/UserWebsite/homepage/homepage.component';
 import { AboutUSComponent } from './components/UserWebsite/about-us/about-us.component';
 import { PromoComponent } from './components/UserWebsite/promo/promo.component';
 import { MyBlogComponent } from './components/UserWebsite/my-blog/my-blog.component';
 import { ContactComponent } from './components/UserWebsite/contact/contact.component';
 import { TopheaderComponent } from './components/UserWebsite/topheader/topheader.component';
+import { WorkExperienceComponent } from './components/UserWebsite/work-experience/work-experience.component';
+import { MyHomeComponent } from './components/UserWebsite/my-home/my-home.component';
 
 
 
@@ -32,13 +33,15 @@ import { TopheaderComponent } from './components/UserWebsite/topheader/topheader
     path: '', 
     component:TopheaderComponent, 
     children: [
-      { path: 'homepage', component: HomepageComponent },
       { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+      { path: 'homepage', component: MyHomeComponent },
       { path: 'about_us', component: AboutUSComponent },
       { path: 'promo', component: PromoComponent },
       { path: 'blogs', component: MyBlogComponent },
+      { path: 'work', component: WorkExperienceComponent },
       { path: 'contact_us', component: ContactComponent },
       { path: 'login', component: SignInUIComponent },
+
     ] 
   },
  

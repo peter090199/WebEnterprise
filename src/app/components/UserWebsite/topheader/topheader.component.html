@@ -1,21 +1,15 @@
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-bar>
-
 <mat-toolbar class="w3-bar w3-white w3-card" id="myNavbar">
-  <!-- <span class="toolbar-title">Pedsfolio</span> -->
   <div class="logo">
-    <img src="assets/images/logo.png" alt="logo">
+    <span>DevSped Folio</span>
+    <!-- <img src="assets/images/logo.png" alt="logo"> -->
   </div>
-  <!-- Spacer for Alignment -->
+
   <span class="example-spacer"></span>
 
-  <!-- Desktop Navigation -->
-  <div class="w3-right w3-hide-small">
-    <a *ngFor="let item of nav_module"
-       [routerLink]="item.routes"
-       (click)="closeSidebar()"
-       class="w3-bar-item w3-button"
-       [class.login-item]="item.module === 'Login'">
-      {{ item.module }}
+  <div class="w3-left w3-hide-small">
+    <a *ngFor="let item of nav_module" [routerLink]="item.routes" (click)="closeSidebar()"class="w3-bar-item w3-button">
+          {{ item.module }}
     </a>
   </div>
 

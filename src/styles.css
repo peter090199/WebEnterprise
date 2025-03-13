@@ -149,7 +149,9 @@ mat-row.selected {
   margin: auto;
   padding: 40px;
   margin-top: 80px;
+  animation: fadeIn 0.8s ease-out forwards;
 }
+
  .button-end {
    display: flex;
    justify-content: flex-end;
@@ -342,7 +344,7 @@ mat-card-actions {
  bottom: 0;
 }
 
-.custom-textarea {
+textarea {
  height:250px;
  max-height: 250px; /* Adjust this value as needed */
  overflow-y: auto; /* Enable scrolling if text exceeds max height */
@@ -449,4 +451,89 @@ mat-option {
 
 
 
+/* text layout */
+.text-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: fadeIn 1s ease-out;
+}
 
+.text-subtitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.text-description {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 46px;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.text-info {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 1.8s ease-out;
+}
+
+.text-background {
+  background: #f9f9f9;
+  padding: 35px;
+  margin-bottom: 45px;
+  border-left: 5px solid #007bff;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.6s ease-out;
+}
+
+.text-background.fade-in {
+  opacity: 1.2;
+  transform: translateY(0);
+}
+
+.text-background:hover {
+  opacity: 1.2;
+  transform: scale(1);
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+
+
+.role {
+  font-size: 18px;
+  font-weight: bold;
+}
+.duration {
+  color: #555;
+}
+ul {
+  padding-left: 20px;
+}
+ul li {
+  margin-bottom: 5px;
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0.8;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(8);
+  }
+}

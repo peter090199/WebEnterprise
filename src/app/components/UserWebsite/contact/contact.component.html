@@ -1,12 +1,11 @@
 <div class="container" id="contact">
-    <mat-card *ngFor="let data of contact" class="contact-card"  [@slideUpDownAnimation]>
-      <mat-card-content>
-        <h2 class="contact-title"  [@slideUpDownAnimation]>{{ data.contact_title }}</h2>
-        <p class="contact-description">{{ data.description }}</p>
-        <div class="contact-info">
-          <a href="{{ data.fbpage }}" target="_blank" class="contact-link">
+    <div *ngFor="let data of contact" class="text-background">
+        <h2 class="text-title">{{ data.contact_title }}</h2>
+        <p class="text-description"> {{ data.description }}</p>
+        <div class="text-info">
+          <!-- <a href="{{ data.fbpage }}" target="_blank" class="contact-link">
             <mat-icon class="contact-icon">facebook</mat-icon> {{ data.fbpage }}
-          </a>
+          </a> -->
           <p>
             <mat-icon class="contact-icon">phone</mat-icon> {{ data.phoneNumber }}
           </p>
@@ -14,7 +13,6 @@
         <a mat-button color="primary" (click)="openInNewWindow(data.mLink)" target="_blank" class="messenger-button">
           <mat-icon>send</mat-icon> Open Messenger
         </a>
-      </mat-card-content>
-    </mat-card>
+    </div>
   </div>
-  
+
